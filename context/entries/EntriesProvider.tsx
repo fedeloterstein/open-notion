@@ -4,8 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { Entry } from '../../interfaces';
 import { EntriesContext, EntriesReducer } from './';
 
+
 export interface EntriesState {
-    entries: Entry[]
+    entries: Entry[],
 }
 
 interface EntriesProviderPros {
@@ -36,10 +37,21 @@ export const EntriesProvider: FC<EntriesProviderPros> = ({children}) => {
 
   const [state, dispatch] = useReducer(EntriesReducer, ENTRIES_INITIAL_STATE)
    
+  
+const addNewEntry = (description: string ) => {
+  const newEntry: Entry = {
+    _id: uuidv4(),
+    description,
+    createdAt: Date.now(),
+    status: 'next-up'
+  }
+  dispatch({type: '[Entry] Add-Entry', payload: newEntry})
+}
 
   return (
     <EntriesContext.Provider value={{
        ...state,
+       addNewEntry
     }}>
         {children}
     </EntriesContext.Provider>

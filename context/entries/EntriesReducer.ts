@@ -1,15 +1,16 @@
+import { Entry } from '../../interfaces'
 import { EntriesState } from './'
 
 type EntriesActionType =
-  | { type: '[Entries + - ActionName' }
+  | { type: '[Entry] Add-Entry', payload: Entry }
 
 export const EntriesReducer = (state: EntriesState, action: EntriesActionType): EntriesState => {
   
     switch (action.type) {
-    case 'UI - Open Sidebar':
+    case '[Entry] Add-Entry':
       return {
         ...state,
-        sideMenuOpen: true,
+        entries: [...state.entries, action.payload]
       }
 
     default:
