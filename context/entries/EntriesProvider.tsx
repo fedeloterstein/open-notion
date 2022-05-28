@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { Entry } from '../../interfaces';
 import { EntriesContext, EntriesReducer } from './';
 
-
 export interface EntriesState {
     entries: Entry[],
 }
@@ -48,10 +47,14 @@ const addNewEntry = (description: string ) => {
   dispatch({type: '[Entry] Add-Entry', payload: newEntry})
 }
 
+const upDateEntry = (entry: Entry) => {
+  dispatch({type: '[Entry] Entry-Updated', payload: entry})
+}
   return (
     <EntriesContext.Provider value={{
        ...state,
-       addNewEntry
+       addNewEntry,
+       upDateEntry
     }}>
         {children}
     </EntriesContext.Provider>
