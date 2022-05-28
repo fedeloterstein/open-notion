@@ -13,20 +13,20 @@ const HomePage: NextPage = () => {
     
               {/**Agregar una nueva tarea */}
                 {/**Listado  de la entradas */}
-                <EntryList />
+                <EntryList status='next-up'/>
       
           </Card>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Card sx={{height: 'calc(100vh - 100px)'}}>
             <CardHeader title="In Progress" />
-            <EntryList />
+            <EntryList status='in-progress' />
           </Card>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Card sx={{height: 'calc(100vh - 100px)'}}>
             <CardHeader title="Completed" />
-            <EntryList />
+            <EntryList status='completed'/>
           </Card>
         </Grid>
       </Grid>

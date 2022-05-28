@@ -14,19 +14,19 @@ interface EntriesProviderPros {
 const ENTRIES_INITIAL_STATE: EntriesState = {
     entries: [{
       _id: uuidv4(),
-      description: 'todo 1',
+      description: 'next-up: todo 1',
       status: 'next-up',
       createdAt: Date.now()
     },
     {
       _id: uuidv4(),
-      description: 'todo 2',
+      description: 'in-progress: todo 2',
       status: 'in-progress',
       createdAt: Date.now() - 10000000
     },
     {
       _id: uuidv4(),
-      description: 'todo 3',
+      description: 'completed: todo 3',
       status: 'completed',
       createdAt: Date.now() - 100000
     }],
