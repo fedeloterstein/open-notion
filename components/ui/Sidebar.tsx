@@ -9,6 +9,8 @@ import {
   Typography,
 } from '@mui/material'
 import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined'
+import { useContext } from 'react'
+import { UiContext } from '../../context'
 
 const menuItems: string[] = [
   'By Status',
@@ -18,8 +20,11 @@ const menuItems: string[] = [
   'Due Dates',
 ]
 export const Sidebar = () => {
+
+  const {sideMenuOpen, closeSideMenu} = useContext(UiContext)
+
   return (
-    <Drawer anchor="left" open={true} onClose={() => console.log('cerrado')}>
+    <Drawer anchor="left" open={sideMenuOpen} onClose={closeSideMenu}>
       <Box sx={{width: 250}}>
       <Box sx={{ padding: '5px 10px' }}>
         <Typography variant="h4">Menu</Typography>
